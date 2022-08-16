@@ -1,0 +1,139 @@
+{% extends 'base.html'%}
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+<!-- ======= Blog Section ======= -->
+<section class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Blog</h2>
+
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia reiciendis</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Blog Section -->
+
+<!-- ======= Blog Single Section ======= -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+
+      <div class="col-lg-8 entries">
+
+        <article class="entry entry-single">
+     
+          <div class="entry-img">
+            <img src="{{ post.image.url }}" alt="" class="img-fluid">
+          </div>
+
+          <h2 class="entry-title">
+            <a href="blog-single.html">{{ post.title}}</a>
+          </h2>
+
+          <div class="entry-meta">
+            <ul>
+              <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ post.author }}</a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ post.created_on | naturalday }}</time></a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+            </ul>
+          </div>
+
+          <div class="entry-content">
+
+            <blockquote>
+              <p>
+                {{ post.content }}
+                             </p>
+            </blockquote>
+
+            <h3>Et quae iure vel ut odit alias.</h3>
+            <p>
+              Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
+              Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
+              Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
+            </p>
+            <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="">
+
+            <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
+            <p>
+              Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
+              Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
+            </p>
+            <p>
+              Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
+            </p>
+
+          </div>
+         
+
+        </article><!-- End blog entry -->
+
+        
+
+        <div class="col-md-8 card mb-4  mt-3 ">
+          <div class="card-body">
+            <!-- comments -->
+            <h2>{{ comments.count }} comments</h2>
+     
+            <h4>Leave a Reply</h4>
+            <p>Your email address will not be published. Required fields are marked * </p>
+            
+            {% for comment in comments %}
+            <div class="comments" style="padding: 10px;">
+              <p class="font-weight-bold">
+                {{ comment.name }}
+                <span class=" text-muted font-weight-normal">
+                  {{ comment.created_on }}
+                </span>
+              </p>
+              {{ comment.body | linebreaks }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-8 card mb-4  mt-3 ">
+          <div class="card-body">
+            {% if new_comment %}
+            <div class="alert alert-success" role="alert">
+              Your comment is awaiting moderation
+            </div>
+            {% else %}
+            <h3>Leave a comment</h3>
+            <form method="post" style="margin-top: 1.3em;">
+              {{ comment_form.as_p }}
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+            
+          </div>
+         
+          </div><!-- End comment #1 --> 
+
+          
+
+          
+
+      </div><!-- End blog sidebar -->
+
+    </div>
+
+  </div>
+</section><!-- End Blog Single Section -->
+
+</main><!-- End #main -->
+
+
+{% endblock %}
