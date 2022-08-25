@@ -35,15 +35,15 @@
                   <div class="swiper-slide">
                     <img src="{{ portfolio.photo_main.url}}" alt="">
                   </div>
-                  {% if listing.photo_1 %}
+                  {% if portfolio.photo_1 %}
                   <div class="swiper-slide">
-                    <img src="{{ portfolio.photo_1.url}}" alt="">
+                    <img src="{{ portfolio.photo_1.url }}" alt="">
                   </div>
                   {% endif %}
-                  <div class="swiper-slide">
+                  <!-- <div class="swiper-slide">
                     <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
                   </div>
-  
+                   -->
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -58,7 +58,7 @@
                 </ul>
               </div>
               <div class="portfolio-description">
-                <h2>This is an example of portfolio detail</h2>
+                <h2></h2>
                 <p>
                   {{ portfolio.description}}
                 </p>

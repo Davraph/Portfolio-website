@@ -1,9 +1,10 @@
+from turtle import title
 from django.shortcuts import render , get_object_or_404
 from .models import Portfolio
 
 # Create your views here.
 def index(request):
-    portfolios = Portfolio.objects.order_by('-title')
+    portfolios = Portfolio.objects.all()
     
     context = {
         'portfolios': portfolios,

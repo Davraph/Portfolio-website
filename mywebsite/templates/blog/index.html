@@ -39,15 +39,16 @@
                 </div>
   
                 <h2 class="entry-title">
-                  <a href="{% url "post-detail" post.slug %}">{{ post.title }}</a>
+                  <a href="{% url 'post-detail' post.slug %}">{{ post.title }}</a>
                 </h2>
   
                 <div class="entry-meta">
                   <ul>
                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'about' %}">{{post.author}}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html">{{ post.created_on | naturalday }}</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="blog-single.html">views: {{ post.views | intword }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#">{{ post.created_on | naturalday }}</time></a></li>
+                
+                  
+                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#">views: {{ post.views | intword }}</a></li>
                   </ul>
                 </div>
   
